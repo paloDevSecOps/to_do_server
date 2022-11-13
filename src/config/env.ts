@@ -6,11 +6,11 @@ export default ()=>({
   host: ensureEnv('HOST'),
   port: ensureEnv('PORT'),
   database: {
-    host: ensureEnv('DATABASE_HOST'),
-    port: parseInt(ensureEnv('DATABASE_PORT'), 10),
-    user: ensureEnv('DATABASE_USER'),
-    password: ensureEnv('DATABASE_PASSWORD'),
-    database: ensureEnv('DATABASE_NAME'),
+    host: ensureEnv('POSTGRES_HOST'),
+    port: parseInt(ensureEnv('POSTGRES_PORT'), 10),
+    user: ensureEnv('POSTGRES_USER'),
+    password: ensureEnv('POSTGRES_PASSWORD'),
+    database: ensureEnv('POSTGRES_DB'),
   },
 });
 
