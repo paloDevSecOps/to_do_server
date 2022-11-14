@@ -1,10 +1,10 @@
-import { getRepositoryToken } from "@nestjs/typeorm";
-import { Test } from '@nestjs/testing/test';
-import { Repository } from 'typeorm/repository/Repository';
-import { allUsers, user1 } from './mock';
-import { TestingModule } from '@nestjs/testing';
-import { User } from "src/users/entities/user.entity";
-import { UsersService } from "src/users/users.service";
+import { UsersService } from './../../users/users.service';
+import { User } from './../../users/entities/user.entity';
+import { allUsers, user1 } from "./mock";
+import { TestingModule, Test } from '@nestjs/testing';
+import { getRepositoryToken } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+
 
 
 describe('UsersService', () => {
@@ -32,7 +32,6 @@ describe('UsersService', () => {
   });
 
   it('should be defined', () => {
-    console.log('testing');
     expect(service).toBeDefined();
   });
 });
