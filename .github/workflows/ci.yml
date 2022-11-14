@@ -1,0 +1,27 @@
+name: Github CI action
+
+on: // trigger
+  push: 
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  Kill Build : //job id
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Checkout repository ${{ github.repository }}
+        uses: actions/checkout@v3
+      - name: Use Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "lts/*"
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn install --immutable
+        run: yarn test
+        
+      
+
+  Test lah:
+  Deploy:
