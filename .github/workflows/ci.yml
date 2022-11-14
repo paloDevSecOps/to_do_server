@@ -7,7 +7,7 @@ on: # trigger workflow
     branches: [main]
 
 jobs:
-  Kill Build : //job id
+  Kill Build : # job id
     runs-on: ubuntu-latest
     steps: 
       - name: Checkout repository ${{ github.repository }}
