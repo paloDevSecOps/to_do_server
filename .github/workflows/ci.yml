@@ -1,6 +1,6 @@
 name: Github CI action
 
-on: // trigger
+on: # trigger workflow
   push: 
     branches: [main]
   pull_request:
@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
         run: yarn test
-        
+
       
 
   Test lah:
