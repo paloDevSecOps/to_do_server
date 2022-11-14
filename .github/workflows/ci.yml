@@ -20,8 +20,3 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
         run: yarn test
-
-      
-
-  Test lah:
-  Deploy:
