@@ -7,7 +7,8 @@ on: # trigger workflow
     branches: [main]
 
 jobs:
-  kill-build : # job id
+  build : # job id
+    name: Kill Build
     runs-on: ubuntu-latest
     steps: 
       - name: Checkout repository ${{ github.repository }}
@@ -19,4 +20,16 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install --immutable
-      - run: yarn test
+      - name: Testing code
+        run: yarn test
+      - name: Building app
+        run: yarn build
+      - name: Upload artifact to github runner
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-file
+          path: |
+            dist
+            !dist/test/*
+          retention-days: 3
+    
