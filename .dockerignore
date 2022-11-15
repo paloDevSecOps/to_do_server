@@ -1,0 +1,8 @@
+*.md
+
+.github
+
+dist
+node_modules
+scripts
+

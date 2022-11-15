@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  db-dev:
+  postgres:
     image: postgres:alpine
     restart: always
     env_file:
