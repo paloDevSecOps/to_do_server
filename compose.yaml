@@ -2,9 +2,24 @@ version: "3"
 
 services:
   postgres:
+    container_name: to_do_postgres
     image: postgres:alpine
     restart: always
     env_file:
-      - .env
+      - docker.env
     ports:
-      - "5433:5432"
+      - "5433:${POSTGRES_PORT}"
+    volumes:
+      - ./db:/var/lib/postgresql
+
+  api_server:
+   environment:
+      - COMPOSE_PROJECT_NAME
+   depends_on: 
+     - postgres
+   build:
+     dockerfile: ./Dockerfile
+   env_file:
+      - docker.env
+   ports:
+     - "3030:3000"
