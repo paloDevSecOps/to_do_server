@@ -1,6 +1,6 @@
 import { User } from 'src/users/entities/user.entity';
 
-export const allUsers: Array<User> = [
+export const mockAllUsers: Array<User> = [
   {
     id: 1,
     username: 'testUser1',
@@ -13,4 +13,4 @@ export const allUsers: Array<User> = [
   },
 ];
 
-export const user1: User = { id: 3, username: 'testUser3', password: '1234' };
+export const mockUser1: User = { id: 3, username: 'testUser3', password: '1234' };

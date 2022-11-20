@@ -1,3 +1,4 @@
+import { mockAllUsers, mockUser1 } from './mock';
 import { TestingModule, Test } from '@nestjs/testing';
 import { UsersController } from './../../users/users.controller';
 import { CreateUserDto } from './../../users/dto/create-user.dto';
@@ -18,24 +19,11 @@ describe('UsersController', () => {
             create: jest
               .fn()
               .mockImplementation((user: CreateUserDto) =>
-                Promise.resolve({ id: '1', ...user }),
+                Promise.resolve({ ...user }),
               ),
-            findAll: jest.fn().mockResolvedValue([
-              {
-                firstName: 'firstName #1',
-                lastName: 'lastName #1',
-              },
-              {
-                firstName: 'firstName #2',
-                lastName: 'lastName #2',
-              },
-            ]),
+            findAll: jest.fn().mockResolvedValue(mockAllUsers),
             findOne: jest.fn().mockImplementation((id: string) =>
-              Promise.resolve({
-                firstName: 'firstName #1',
-                lastName: 'lastName #1',
-                id,
-              }),
+              Promise.resolve(mockUser1),
             ),
             remove: jest.fn(),
           },

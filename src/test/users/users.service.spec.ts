@@ -1,6 +1,6 @@
 import { UsersService } from './../../users/users.service';
 import { User } from './../../users/entities/user.entity';
-import { allUsers, user1 } from "./mock";
+import { mockAllUsers, mockUser1 } from "./mock";
 import { TestingModule, Test } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -18,9 +18,9 @@ describe('UsersService', () => {
         {
           provide: getRepositoryToken(User),
           useValue: {
-            createUser: jest.fn().mockResolvedValue(user1),
-            getAllUsers: jest.fn().mockResolvedValue(allUsers),
-            getUser: jest.fn().mockResolvedValue(user1),
+            createUser: jest.fn().mockResolvedValue(mockUser1),
+            getAllUsers: jest.fn().mockResolvedValue(mockAllUsers),
+            getUser: jest.fn().mockResolvedValue(mockUser1),
             removeUser: jest.fn(),
           },
         },
