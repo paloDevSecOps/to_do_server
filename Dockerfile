@@ -1,6 +1,6 @@
 FROM node:lts-slim
 
-COPY ["package.json", "yarn.lock", "$HOME/"]
+COPY ["package.json", "$HOME/"]
 
 RUN yarn install
 
