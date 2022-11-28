@@ -1,7 +1,7 @@
 name: Github CI action
 
 on: # trigger workflow
-  push: 
+  push:
     branches: [main]
   pull_request:
     branches: [main]
@@ -10,10 +10,10 @@ jobs:
   build : # job id
     name: Kill Build
     runs-on: ubuntu-latest
-    steps: 
+    steps:
       - name: Checkout repository ${{ github.repository }}
         uses: actions/checkout@v3
-      - name: Use Node
+      - name: Set up NodeJS
         uses: actions/setup-node@v3
         with:
           node-version: "lts/*"
@@ -32,4 +32,4 @@ jobs:
             dist
             !dist/test/*
           retention-days: 3
-    
+
