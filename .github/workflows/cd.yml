@@ -29,6 +29,8 @@ jobs:
           if_no_artifact_found: fail
       - name: List entries
         run: ls -lah
+      - name: Copy built file to remote server
+        run: scp ./build ${{secrets.API_NODE_USER}}@${{secrets.API_NODE_HOST}}:~/todo
       - name: Deploy built file to remote server
         uses: appleboy/ssh-action@v0.1.5
         with:
