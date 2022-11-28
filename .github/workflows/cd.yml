@@ -37,7 +37,8 @@ jobs:
           key: ${{secrets.API_NODE_PRIVATE}}
           debug: true
           script: |
-            echo ${{secrets.API_NODE_USER}}@${{secrets.API_NODE_HOST}}
+            whoami
+            ls -lah
 
 
 
