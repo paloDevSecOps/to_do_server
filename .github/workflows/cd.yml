@@ -19,7 +19,7 @@ jobs:
         id: download-artifact
         uses: dawidd6/action-download-artifact@v2
         with:
-          github_token: ${{secrets.GITHUB_ACCESS_TOKEN}}
+          github_token: ${{secrets.GH_ACCESS_TOKEN}}
           # Optional, workflow file name or ID
           # If not specified, will be inferred from run_id (if run_id is specified), or will be the current workflow
           workflow: ci.yml
