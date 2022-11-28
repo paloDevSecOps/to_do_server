@@ -35,8 +35,9 @@ jobs:
           host: ${{secrets.API_NODE_HOST}}
           username: ${{secrets.API_NODE_USER}}
           key: ${{secrets.API_NODE_PRIVATE}}
+          debug: true
           script: |
-            scp ./build ${{secrets.API_NODE_USER}}@${{secrets.API_NODE_HOST}}:~/todo
+            echo ${{secrets.API_NODE_USER}}@${{secrets.API_NODE_HOST}}
 
 
 
