@@ -25,8 +25,18 @@ jobs:
           workflow: ci.yml
           workflow_conclusion: success
           name: build-file
-          path: /build
+          path: ./build
           if_no_artifact_found: fail
       - name: List entries
         run: ls -lah
+      - name: Deploy built file to remote server
+        uses: appleboy/ssh-action@v0.1.5
+        with:
+          host: ${{secrets.API_NODE_HOST}}
+          username: ${{secrets.API_NODE_USER}}
+          key: ${{secrets.API_NODE_PRIVATE}}
+          script: |
+            scp ./build ${{secrets.API_NODE_USER}}@${{secrets.API_NODE_HOST}}:~/todo
+
+
 
