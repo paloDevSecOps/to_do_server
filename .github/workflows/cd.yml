@@ -1,0 +1,24 @@
+name: Github CD action
+
+on:
+  workflow_run:
+    workflows: [ Github CI action ]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+     if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - run: echo "Tests workflow is ${{ github.event.workflow_run.conclusion }}"
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/download-artifact@v3
+        with:
+          name: build-file
+      - name: List entries
+        run: ls -lah
+
