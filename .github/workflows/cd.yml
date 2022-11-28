@@ -15,10 +15,18 @@ jobs:
       - run: echo "Tests workflow is ${{ github.event.workflow_run.conclusion }}"
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Checkout
-        uses: actions/download-artifact@v3
+      - name: Download artifact
+        id: download-artifact
+        uses: dawidd6/action-download-artifact@v2
         with:
+          github_token: ${{secrets.GITHUB_ACCESS_TOKEN}}
+          # Optional, workflow file name or ID
+          # If not specified, will be inferred from run_id (if run_id is specified), or will be the current workflow
+          workflow: ci.yml
+          workflow_conclusion: success
           name: build-file
+          path: extract_here
+          if_no_artifact_found: fail
       - name: List entries
         run: ls -lah
 
