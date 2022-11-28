@@ -32,12 +32,11 @@ jobs:
       - name: Copy built file to remote server
         run: scp ./build ${{secrets.API_NODE_USER}}@${{secrets.API_NODE_HOST}}:~/todo
       - name: Deploy built file to remote server
-        uses: appleboy/ssh-action@v0.1.5
+        uses: appleboy/ssh-action@master
         with:
           host: ${{secrets.API_NODE_HOST}}
           username: ${{secrets.API_NODE_USER}}
           key: ${{secrets.API_NODE_PRIVATE}}
-          debug: true
           script: |
             whoami
             ls -lah
