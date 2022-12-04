@@ -16,7 +16,6 @@ export default ()=>({
 
 function ensureEnv(key: string) {
   const value = process.env[key];
-  console.log(key, ":", value);
   if (value) return value;
   else throw new Error(`Missing env variable [${key}]`);
 }

@@ -2,7 +2,7 @@ FROM node:lts-slim
 
 COPY ["package.json", "$HOME/"]
 
-RUN yarn install
+RUN yarn install --prod
 
 COPY . .
 

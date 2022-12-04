@@ -15,9 +15,8 @@ services:
       - ./db:/var/lib/postgresql
 
   api_server:
-   environment:
-      - COMPOSE_PROJECT_NAME
-   depends_on: 
+   container_name: to_do_api
+   depends_on:
      - postgres
    build:
      dockerfile: ./Dockerfile
