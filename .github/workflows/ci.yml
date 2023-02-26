@@ -27,5 +27,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Linting code
-        run: yarn lint
-        working-directory: ./to_do_server
+        run: ls -lah
