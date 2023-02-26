@@ -7,8 +7,8 @@ on: # trigger workflow
     branches: [main]
 
 jobs:
-  build : # job id
-    name: Build & Test
+  setup:
+    name: Setting up Node
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository ${{ github.repository }}
@@ -20,10 +20,28 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install --immutable
-      - name: Testing code
-        run: yarn test
-      - name: Building app
-        run: yarn build
+
+  lint:
+    needs: setup
+    name: Linting code
+    runs-on: ubuntu-latest
+    steps:
+      - run: yarn lint
+
+  test :
+    needs: lint
+    name: Testing Code
+    runs-on: ubuntu-latest
+    steps:
+       - run: yarn test
+
+
+  build:
+    needs: test
+    name: Building Code
+    runs-on: ubuntu-latest
+    steps:
+      - run: yarn build
       - name: Upload artifact to github runner
         uses: actions/upload-artifact@v3
         with:
