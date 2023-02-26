@@ -42,3 +42,5 @@ docker.env
 .terraform
 .terraform.*
 *.tfstate
+
+*.example
