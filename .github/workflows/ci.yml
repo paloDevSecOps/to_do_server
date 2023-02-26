@@ -27,4 +27,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Linting code
-        run: ls -lah
+        run: ls -lahR ~
