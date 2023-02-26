@@ -1,8 +1,18 @@
-import { config } from 'dotenv'
+import { config } from 'dotenv';
 
-config()
+config();
 
-export default ()=>({
+export default (): {
+  host: string;
+  port: string;
+  database: {
+    host: string;
+    port: number;
+    user: string;
+    password: string;
+    database: string;
+  };
+} => ({
   host: ensureEnv('HOST'),
   port: ensureEnv('PORT'),
   database: {
@@ -14,7 +24,7 @@ export default ()=>({
   },
 });
 
-function ensureEnv(key: string) {
+function ensureEnv(key: string): string {
   const value = process.env[key];
   if (value) return value;
   else throw new Error(`Missing env variable [${key}]`);

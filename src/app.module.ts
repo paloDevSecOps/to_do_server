@@ -4,9 +4,6 @@ import { UsersModule } from './users/users.module';
 import { dataSource } from './config/db';
 
 @Module({
-  imports: [
-    TypeOrmModule.forRoot(dataSource),
-    UsersModule,
-  ],
+  imports: [TypeOrmModule.forRoot(dataSource), UsersModule],
 })
 export class AppModule {}

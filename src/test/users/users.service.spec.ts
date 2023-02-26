@@ -1,11 +1,9 @@
 import { UsersService } from './../../users/users.service';
 import { User } from './../../users/entities/user.entity';
-import { mockAllUsers, mockUser1 } from "./mock";
+import { mockAllUsers, mockUser1 } from './mock';
 import { TestingModule, Test } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-
-
 
 describe('UsersService', () => {
   let service: UsersService;
@@ -33,5 +31,6 @@ describe('UsersService', () => {
 
   it('should be defined', () => {
     expect(service).toBeDefined();
+    expect(repository).toBeDefined();
   });
 });

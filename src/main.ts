@@ -3,9 +3,9 @@ import { NestExpressApplication } from '@nestjs/platform-express/interfaces/nest
 import { AppModule } from './app.module';
 import env from './config/env';
 
-async function bootstrap() {
+async function bootstrap(): Promise<void> {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  app.enableCors({origin:"*"});
+  app.enableCors({ origin: '*' });
   await app.listen(env().port);
 }
 bootstrap();

@@ -11,19 +11,19 @@ export class UsersService {
     private usersRepository: Repository<User>,
   ) {}
 
-  createUser(createUserDto: CreateUserDto) {
+  createUser(createUserDto: CreateUserDto): Promise<CreateUserDto & User> {
     return this.usersRepository.save(createUserDto);
   }
 
-  getAllUsers() {
+  getAllUsers(): Promise<User[]> {
     return this.usersRepository.find();
   }
 
-  getUser(id: number) {
+  getUser(id: number): Promise<User[]> {
     return this.usersRepository.find({ where: { id } });
   }
 
-  async removeUser(id: number) {
+  async removeUser(id: number): Promise<void> {
     await this.usersRepository.delete(id);
   }
 }

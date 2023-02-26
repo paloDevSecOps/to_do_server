@@ -22,9 +22,9 @@ describe('UsersController', () => {
                 Promise.resolve({ ...user }),
               ),
             findAll: jest.fn().mockResolvedValue(mockAllUsers),
-            findOne: jest.fn().mockImplementation((id: string) =>
-              Promise.resolve(mockUser1),
-            ),
+            findOne: jest
+              .fn()
+              .mockImplementation(() => Promise.resolve(mockUser1)),
             remove: jest.fn(),
           },
         },
@@ -37,5 +37,6 @@ describe('UsersController', () => {
 
   it('should be defined', () => {
     expect(usersController).toBeDefined();
+    expect(usersService).toBeDefined();
   });
 });

@@ -13,4 +13,8 @@ export const mockAllUsers: Array<User> = [
   },
 ];
 
-export const mockUser1: User = { id: 3, username: 'testUser3', password: '1234' };
+export const mockUser1: User = {
+  id: 3,
+  username: 'testUser3',
+  password: '1234',
+};
