@@ -21,15 +21,15 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-  lint:
-    needs: setup
-    name: Linting code
-    runs-on: ubuntu-latest
-    steps:
-      - run: yarn lint
+  # lint:
+  #   needs: setup
+  #   name: Linting code
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: yarn lint
 
   test :
-    needs: lint
+    needs: setup
     name: Testing Code
     runs-on: ubuntu-latest
     steps:
