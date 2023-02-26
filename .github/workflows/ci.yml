@@ -13,6 +13,7 @@ jobs:
     steps:
       - name: Checkout repository ${{ github.repository }}
         uses: actions/checkout@v3
+
       - name: Set up NodeJS
         uses: actions/setup-node@v3
         with:
@@ -21,27 +22,15 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-  # lint:
-  #   needs: setup
-  #   name: Linting code
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - run: yarn lint
+      - name: Linting code
+        run: yarn lint
 
-  test :
-    needs: setup
-    name: Testing Code
-    runs-on: ubuntu-latest
-    steps:
-       - run: yarn test
+      - name: Running tests
+        run: yarn test
 
+      - name: Building code
+        run: yarn build
 
-  build:
-    needs: test
-    name: Building Code
-    runs-on: ubuntu-latest
-    steps:
-      - run: yarn build
       - name: Upload artifact to github runner
         uses: actions/upload-artifact@v3
         with:
@@ -50,4 +39,3 @@ jobs:
             dist
             !dist/test/*
           retention-days: 3
-
