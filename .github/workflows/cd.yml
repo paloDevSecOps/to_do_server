@@ -17,7 +17,7 @@ jobs:
         with:
           host: ${{secrets.API_NODE_HOST}}
           username: ${{secrets.API_NODE_USER}}
-          key: ${{secrets.API_NODE_PRIVATE}}
+          key: ${{secrets.API_NODE_PRIVATE_KEY}}
           script: |
             cd $HOME/to_do_server
             git pull
