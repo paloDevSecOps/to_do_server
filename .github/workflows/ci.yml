@@ -19,12 +19,26 @@ jobs:
         with:
           node-version: "lts/*"
           cache: 'yarn'
-
       - name: Install dependencies
         run: yarn install --immutable
-  lint:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - name: Linting code
-        run: ls -lahR ~
+
+      - name: Format code
+        run: yarn format
+
+      - name: Lint code
+        run: yarn lint
+
+      - name: Run tests
+        run: yarn test
+
+      - name: Build code
+        run: yarn build
+
+      - name: Upload artifact to github runner
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-file
+          path: |
+            dist
+            !dist/test/*
+          retention-days: 3
