@@ -1,11 +1,9 @@
 name: Github CD action
 
 on:
-  workflow_run:
-    workflows: [ Github CI action ]
-    types:
-      - completed
-
+ push:
+  branches:
+    - main
 jobs:
   on-success:
     runs-on: ubuntu-latest
