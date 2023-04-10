@@ -21,4 +21,4 @@ jobs:
             cd $HOME/to_do_server
             git pull
             docker compose pull
-            docker compose up -d
+            docker compose up  --build -d
