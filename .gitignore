@@ -37,10 +37,10 @@ lerna-debug.log*
 # env file
 .env
 docker.env
+docker.env.prod
 *.local
+
 
 .terraform
 .terraform.*
 *.tfstate
-
-*.example

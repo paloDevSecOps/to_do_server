@@ -23,12 +23,13 @@
     "typeorm:run-migrations": "npm run typeorm migration:run -- -d ./src/config/db.ts"
   },
   "dependencies": {
+    "@nestjs/cli": "^9.0.0",
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
     "@nestjs/swagger": "^6.1.3",
     "@nestjs/typeorm": "^9.0.1",
-    "@nestjs/cli": "^9.0.0",
+    "configcat-node": "^9.1.1",
     "pg": "^8.8.0",
     "postgres": "^3.3.1",
     "reflect-metadata": "^0.1.13",

@@ -2,7 +2,9 @@ import { config } from 'dotenv';
 
 config();
 
-export default (): {
+export default init();
+
+function init(): {
   host: string;
   port: string;
   database: {
@@ -12,17 +14,21 @@ export default (): {
     password: string;
     database: string;
   };
-} => ({
-  host: ensureEnv('HOST'),
-  port: ensureEnv('PORT'),
-  database: {
-    host: ensureEnv('POSTGRES_HOST'),
-    port: parseInt(ensureEnv('POSTGRES_PORT'), 10),
-    user: ensureEnv('POSTGRES_USER'),
-    password: ensureEnv('POSTGRES_PASSWORD'),
-    database: ensureEnv('POSTGRES_DB'),
-  },
-});
+  configCatSDK: string;
+} {
+  return {
+    host: ensureEnv('HOST'),
+    port: ensureEnv('PORT'),
+    database: {
+      host: ensureEnv('POSTGRES_HOST'),
+      port: parseInt(ensureEnv('POSTGRES_PORT'), 10),
+      user: ensureEnv('POSTGRES_USER'),
+      password: ensureEnv('POSTGRES_PASSWORD'),
+      database: ensureEnv('POSTGRES_DB'),
+    },
+    configCatSDK: ensureEnv('CONFIG_CAT_SDK_KEY'),
+  };
+}
 
 function ensureEnv(key: string): string {
   const value = process.env[key];
