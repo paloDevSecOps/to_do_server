@@ -35,10 +35,8 @@ lerna-debug.log*
 !.vscode/extensions.json
 
 # env file
-.env
-docker.env
-docker.env.prod
-*.local
+*.env*
+!*.env.example
 
 
 .terraform
