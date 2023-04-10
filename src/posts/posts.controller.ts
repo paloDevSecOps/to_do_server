@@ -14,13 +14,11 @@ import { UpdatePostDto } from './dto/update-post.dto';
 import featureFlagGuard from 'src/guards/feature_flag_guard';
 
 @Controller('posts')
-  @UseGuards()
 @UseGuards(featureFlagGuard('postFeatureFlagEnabled'))
 export class PostsController {
   constructor(
     private readonly postsService: PostsService,
   ) {}
-
 
   @Post()
   create(@Body() createPostDto: CreatePostDto) {
