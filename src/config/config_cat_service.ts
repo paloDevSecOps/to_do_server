@@ -12,7 +12,7 @@ export class ConfigCatService {
     },
   );
 
-  async getFeatureFlagStatus(flagName: string): Promise<boolean>{
-    return  this.configCatClient.getValueAsync(flagName, false);
+  async getFeatureFlagStatus(flagName: string): Promise<boolean> {
+    return this.configCatClient.getValueAsync(flagName, false);
   }
 }

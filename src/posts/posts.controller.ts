@@ -16,9 +16,7 @@ import featureFlagGuard from 'src/guards/feature_flag_guard';
 @Controller('posts')
 @UseGuards(featureFlagGuard('postFeatureFlagEnabled'))
 export class PostsController {
-  constructor(
-    private readonly postsService: PostsService,
-  ) {}
+  constructor(private readonly postsService: PostsService) {}
 
   @Post()
   create(@Body() createPostDto: CreatePostDto) {

@@ -5,6 +5,6 @@ import { ConfigCatService } from 'src/config/config_cat_service';
 
 @Module({
   controllers: [PostsController],
-  providers: [PostsService, ConfigCatService]
+  providers: [PostsService, ConfigCatService],
 })
 export class PostsModule {}
