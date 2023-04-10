@@ -12,6 +12,7 @@ export default (): {
     password: string;
     database: string;
   };
+  configCatSDK:string;
 } => ({
   host: ensureEnv('HOST'),
   port: ensureEnv('PORT'),
@@ -22,6 +23,7 @@ export default (): {
     password: ensureEnv('POSTGRES_PASSWORD'),
     database: ensureEnv('POSTGRES_DB'),
   },
+  configCatSDK: ensureEnv('CONFIG_CAT_SDK_KEY'),
 });
 
 function ensureEnv(key: string): string {
