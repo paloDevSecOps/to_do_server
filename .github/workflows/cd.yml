@@ -1,13 +1,14 @@
 name: Github CD action
 
 on:
- push:
-  branches:
-    - main
+  pull_request:
+    branches:
+      - main
+    types: [closed]
 jobs:
   on-success:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: github.event.pull_request.merged == true
 
     steps:
       - name: Deploy built file to remote server
