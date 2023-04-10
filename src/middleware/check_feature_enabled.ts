@@ -11,6 +11,6 @@ export function checkFeatureEnabled(flagName: string) {
     console.log(`${flagName}:  ${FeatureFlagEnabled}`);
 
     if (FeatureFlagEnabled) next();
-    else return res.status(400).send(`This feature is not ready`);
+    else return res.status(418).send(`This feature is not ready`);
   };
 }
