@@ -3,11 +3,11 @@ import env from './env';
 
 export const dataSource: TypeOrmModuleOptions = {
   type: 'postgres',
-  host: env().database.host,
-  port: env().database.port,
-  username: env().database.user,
-  password: env().database.password,
-  database: env().database.database,
+  host: env.database.host,
+  port: env.database.port,
+  username: env.database.user,
+  password: env.database.password,
+  database: env.database.database,
   synchronize: true,
   logging: false,
   subscribers: [],
