@@ -1,0 +1,21 @@
+
+colors: true
+
+# pre-push:
+#   commands:
+    # packages-audit:
+    #   tags: frontend security
+    #   run: yarn audit
+    # gems-audit:
+    #   tags: backend security
+    #   run: bundle audit
+
+pre-commit:
+  parallel: true
+  commands:
+    format:
+      run: yarn format
+    lint:
+      run: yarn lint
+    test:
+      run: yarn test
