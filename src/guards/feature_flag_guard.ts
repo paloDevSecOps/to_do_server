@@ -13,7 +13,7 @@ function featureFlagGuard(featureFlagName: string): Type<CanActivate> {
   class Guard implements CanActivate {
     constructor(private readonly configCatService: ConfigCatService) {}
 
-    async canActivate(context: ExecutionContext) {
+    async canActivate(context: ExecutionContext): Promise<boolean> {
       const isEnabled = await this.configCatService.getFeatureFlagStatus(
         featureFlagName,
       );
