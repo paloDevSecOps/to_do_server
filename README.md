@@ -1,9 +1,10 @@
 The back end now consists of two services: api server and database.
-you can either 
-1. run both of them  locally 
+you can either
+
+1. run both of them locally
 2. run both of them in containers
 
-Unless you need to 
+Unless you need to
 
 ### **Running the server with using docker compose is highly suggested**
 
@@ -13,7 +14,9 @@ you only need to:
 2. Configure docker.env
 3. run `docker compose up`
 
+## API
 
+base URL: 13.250.126.224:3030
 
-
-
+users: /users
+posts: /posts (disabled by default)
