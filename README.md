@@ -13,10 +13,3 @@ you only need to:
 1. Have docker, docker-cli, docker compose, docker-desktop (optional, but recommended) installed
 2. Configure docker.env
 3. run `docker compose up`
-
-## API
-
-base URL: 13.250.126.224:3030
-
-users: /users
-posts: /posts (disabled by default)
