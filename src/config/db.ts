@@ -1,5 +1,6 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import env from './env';
+import { User } from 'src/users/entities/user.entity';
 
 export const dataSource: TypeOrmModuleOptions = {
   type: 'postgres',
@@ -10,6 +11,7 @@ export const dataSource: TypeOrmModuleOptions = {
   database: env.database.database,
   synchronize: true,
   logging: false,
+  entities: [User],
   subscribers: [],
   migrations: ['src/migrations/**/*{.ts,.js}'],
   migrationsTableName: 'migrations',
